@@ -9,8 +9,6 @@ class LowValueIndicator<T extends IndicatorResult> extends Indicator<T> {
   LowValueIndicator(IndicatorDataInput input) : super(input);
 
   @override
-  T getValue(int index) => createResult(
-        index: index,
-        quote: entries[index].low,
-      );
+  T getValue(int index) =>
+      createResult(index: index, quote: entries[index].low);
 }

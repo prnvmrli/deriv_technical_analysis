@@ -9,9 +9,9 @@ import 'indicator.dart';
 abstract class CachedIndicator<T extends IndicatorResult> extends Indicator<T> {
   /// Initializes
   CachedIndicator(IndicatorDataInput input)
-      : results = List<T>.empty(growable: true),
-        lastResultIndex = 0,
-        super(input) {
+    : results = List<T>.empty(growable: true),
+      lastResultIndex = 0,
+      super(input) {
     _growResultsForIndex(entries.length - 1);
   }
 
@@ -72,10 +72,12 @@ abstract class CachedIndicator<T extends IndicatorResult> extends Indicator<T> {
     final int oldResultsCount = results.length;
 
     if (index > oldResultsCount - 1) {
-      results.addAll(List<T>.filled(
-        index - oldResultsCount + 1,
-        createResult(quote: double.infinity, index: index),
-      ));
+      results.addAll(
+        List<T>.filled(
+          index - oldResultsCount + 1,
+          createResult(quote: double.infinity, index: index),
+        ),
+      );
     }
 
     return results.length - oldResultsCount;

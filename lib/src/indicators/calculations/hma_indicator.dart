@@ -12,14 +12,14 @@ import 'wma_indicator.dart';
 class HMAIndicator<T extends IndicatorResult> extends CachedIndicator<T> {
   /// Initializes
   HMAIndicator(Indicator<T> indicator, this.period)
-      : _sqrtWma = WMAIndicator<T>(
-          DifferenceIndicator<T>(
-            MultiplierIndicator<T>(WMAIndicator<T>(indicator, period ~/ 2), 2),
-            WMAIndicator<T>(indicator, period),
-          ),
-          sqrt(period).toInt(),
+    : _sqrtWma = WMAIndicator<T>(
+        DifferenceIndicator<T>(
+          MultiplierIndicator<T>(WMAIndicator<T>(indicator, period ~/ 2), 2),
+          WMAIndicator<T>(indicator, period),
         ),
-        super.fromIndicator(indicator);
+        sqrt(period).toInt(),
+      ),
+      super.fromIndicator(indicator);
 
   /// Moving average bar count
   final int period;

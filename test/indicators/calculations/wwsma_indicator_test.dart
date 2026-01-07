@@ -36,7 +36,9 @@ void main() {
 
     test('WWSMAIndicator calculates the correct results', () {
       final WWSMAIndicator<MockResult> wws = WWSMAIndicator<MockResult>(
-          CloseValueIndicator<MockResult>(MockInput(ticks)), 4);
+        CloseValueIndicator<MockResult>(MockInput(ticks)),
+        4,
+      );
 
       // Comparing Results with app.deriv.com
       expect(wws.getValue(14).quote, closeTo(83.019, 0.001));

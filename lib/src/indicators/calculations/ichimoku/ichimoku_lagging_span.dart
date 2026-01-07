@@ -8,10 +8,9 @@ import '../helper_indicators/close_value_inidicator.dart';
 class IchimokuLaggingSpanIndicator<T extends IndicatorResult>
     extends CachedIndicator<T> {
   /// Initializes an [IchimokuLaggingSpanIndicator].
-  IchimokuLaggingSpanIndicator(
-    IndicatorDataInput input,
-  )   : _closeValueIndicator = CloseValueIndicator<T>(input),
-        super(input);
+  IchimokuLaggingSpanIndicator(IndicatorDataInput input)
+    : _closeValueIndicator = CloseValueIndicator<T>(input),
+      super(input);
 
   final CloseValueIndicator<T> _closeValueIndicator;
 

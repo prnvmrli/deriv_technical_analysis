@@ -36,7 +36,9 @@ void main() {
 
     test('VMAIndicator calculates the correct results', () {
       final VMAIndicator<MockResult> v = VMAIndicator<MockResult>(
-          CloseValueIndicator<MockResult>(MockInput(ticks)), 5);
+        CloseValueIndicator<MockResult>(MockInput(ticks)),
+        5,
+      );
 
       // Comparing Results with app.deriv.com
       expect(v.getValue(3).quote, closeTo(83.5, 0.01));

@@ -11,16 +11,18 @@ import 'aroon_up_indicator.dart';
 class AroonOscillatorIndicator<T extends IndicatorResult>
     extends CachedIndicator<T> {
   /// Initializes
-  AroonOscillatorIndicator.fromIndicator(IndicatorDataInput indicatorDataInput,
-      {int period = 14})
-      : _upChannel = AroonUpIndicator<T>.fromIndicator(
-            LowValueIndicator<T>(indicatorDataInput),
-            period: period),
-        _downChannel = AroonDownIndicator<T>.fromIndicator(
-          HighValueIndicator<T>(indicatorDataInput),
-          period: period,
-        ),
-        super(indicatorDataInput);
+  AroonOscillatorIndicator.fromIndicator(
+    IndicatorDataInput indicatorDataInput, {
+    int period = 14,
+  }) : _upChannel = AroonUpIndicator<T>.fromIndicator(
+         LowValueIndicator<T>(indicatorDataInput),
+         period: period,
+       ),
+       _downChannel = AroonDownIndicator<T>.fromIndicator(
+         HighValueIndicator<T>(indicatorDataInput),
+         period: period,
+       ),
+       super(indicatorDataInput);
 
   /// Aroon up channel indicator.
   final AroonUpIndicator<T> _upChannel;
@@ -30,9 +32,10 @@ class AroonOscillatorIndicator<T extends IndicatorResult>
 
   @override
   T calculate(int index) => createResult(
-      index: index,
-      quote: _upChannel.getValue(index).quote -
-          _downChannel.getValue(index).quote);
+    index: index,
+    quote:
+        _upChannel.getValue(index).quote - _downChannel.getValue(index).quote,
+  );
 
   @override
   void copyValuesFrom(covariant AroonOscillatorIndicator<T> other) {

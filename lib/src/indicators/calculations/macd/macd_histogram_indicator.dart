@@ -11,17 +11,18 @@ class MACDHistogramIndicator<T extends IndicatorResult>
   MACDHistogramIndicator.fromIndicator(
     MACDIndicator<T> macdIndicator,
     SignalMACDIndicator<T> signalMACDIndicator,
-  )   : _macdIndicator = macdIndicator,
-        _signalMACDIndicator = signalMACDIndicator,
-        super.fromIndicator(macdIndicator);
+  ) : _macdIndicator = macdIndicator,
+      _signalMACDIndicator = signalMACDIndicator,
+      super.fromIndicator(macdIndicator);
 
   final MACDIndicator<T> _macdIndicator;
   final SignalMACDIndicator<T> _signalMACDIndicator;
 
   @override
   T calculate(int index) => createResult(
-        index: index,
-        quote: _macdIndicator.getValue(index).quote -
-            _signalMACDIndicator.getValue(index).quote,
-      );
+    index: index,
+    quote:
+        _macdIndicator.getValue(index).quote -
+        _signalMACDIndicator.getValue(index).quote,
+  );
 }

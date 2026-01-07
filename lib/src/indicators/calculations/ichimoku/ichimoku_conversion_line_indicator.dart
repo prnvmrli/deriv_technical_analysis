@@ -7,8 +7,6 @@ import 'ichimoku_line_indicator.dart';
 class IchimokuConversionLineIndicator<T extends IndicatorResult>
     extends IchimokuLineIndicator<T> {
   /// Initializes an [IchimokuConversionLineIndicator].
-  IchimokuConversionLineIndicator(
-    IndicatorDataInput input, {
-    int period = 9,
-  }) : super(input, period: period);
+  IchimokuConversionLineIndicator(IndicatorDataInput input, {int period = 9})
+    : super(input, period: period);
 }

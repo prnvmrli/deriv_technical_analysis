@@ -7,8 +7,6 @@ import 'ichimoku_line_indicator.dart';
 class IchimokuBaseLineIndicator<T extends IndicatorResult>
     extends IchimokuLineIndicator<T> {
   /// Initializes an [IchimokuBaseLineIndicator].
-  IchimokuBaseLineIndicator(
-    IndicatorDataInput input, {
-    int period = 26,
-  }) : super(input, period: period);
+  IchimokuBaseLineIndicator(IndicatorDataInput input, {int period = 26})
+    : super(input, period: period);
 }

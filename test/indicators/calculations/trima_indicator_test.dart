@@ -27,7 +27,9 @@ void main() {
     test('TRIMAIndicator calculates the correct results', () {
       final TRIMAIndicator<MockResult> trimaIndicator =
           TRIMAIndicator<MockResult>(
-              CloseValueIndicator<MockResult>(MockInput(ticks)), 3);
+            CloseValueIndicator<MockResult>(MockInput(ticks)),
+            3,
+          );
 
       // Comparing Results with app.deriv.com
       expect(trimaIndicator.getValue(4).quote, closeTo(899.073, 0.001));

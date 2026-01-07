@@ -3,8 +3,7 @@ import 'package:deriv_technical_analysis/src/models/data_input.dart';
 import 'package:deriv_technical_analysis/src/models/models.dart';
 
 /// FractalChaosBand Low Indicator
-class FCBLowIndicator<T extends IndicatorResult>
-    extends CachedIndicator<T> {
+class FCBLowIndicator<T extends IndicatorResult> extends CachedIndicator<T> {
   /// Initializes
   FCBLowIndicator(IndicatorDataInput input) : super(input);
 

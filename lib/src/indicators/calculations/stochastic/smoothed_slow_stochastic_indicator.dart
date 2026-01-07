@@ -11,9 +11,8 @@ class SmoothedSlowStochasticIndicator<T extends IndicatorResult>
   SmoothedSlowStochasticIndicator(
     SlowStochasticIndicator<T> slowPercentKStochasticIndicator, {
     int period = 3,
-  })  : _smaIndicator =
-            SMAIndicator<T>(slowPercentKStochasticIndicator, period),
-        super.fromIndicator(slowPercentKStochasticIndicator);
+  }) : _smaIndicator = SMAIndicator<T>(slowPercentKStochasticIndicator, period),
+       super.fromIndicator(slowPercentKStochasticIndicator);
 
   final SMAIndicator<T> _smaIndicator;
 

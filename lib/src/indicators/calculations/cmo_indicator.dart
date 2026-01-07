@@ -10,9 +10,9 @@ import 'package:deriv_technical_analysis/src/models/models.dart';
 class CMOIndicator<T extends IndicatorResult> extends CachedIndicator<T> {
   /// Initializes
   CMOIndicator(Indicator<T> indicator, this.period)
-      : _gainIndicator = GainIndicator<T>.fromIndicator(indicator),
-        _lossIndicator = LossIndicator<T>.fromIndicator(indicator),
-        super.fromIndicator(indicator);
+    : _gainIndicator = GainIndicator<T>.fromIndicator(indicator),
+      _lossIndicator = LossIndicator<T>.fromIndicator(indicator),
+      super.fromIndicator(indicator);
   final GainIndicator<T> _gainIndicator;
   final LossIndicator<T> _lossIndicator;
 

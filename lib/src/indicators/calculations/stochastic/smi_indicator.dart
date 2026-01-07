@@ -35,10 +35,14 @@ class SMIIndicator<T extends IndicatorResult> extends CachedIndicator<T> {
     int smoothingPeriod = 3,
     int doubleSmoothingPeriod = 3,
   }) {
-    final LowestValueIndicator<T> ll =
-        LowestValueIndicator<T>(LowValueIndicator<T>(input), period);
-    final HighestValueIndicator<T> hh =
-        HighestValueIndicator<T>(HighValueIndicator<T>(input), period);
+    final LowestValueIndicator<T> ll = LowestValueIndicator<T>(
+      LowValueIndicator<T>(input),
+      period,
+    );
+    final HighestValueIndicator<T> hh = HighestValueIndicator<T>(
+      HighValueIndicator<T>(input),
+      period,
+    );
 
     final DifferenceIndicator<T> diff = DifferenceIndicator<T>(hh, ll);
     final DifferenceIndicator<T> rDiff = DifferenceIndicator<T>(
@@ -60,7 +64,7 @@ class SMIIndicator<T extends IndicatorResult> extends CachedIndicator<T> {
   }
 
   SMIIndicator._(IndicatorDataInput input, this._avgRel, this._avgDiff)
-      : super(input);
+    : super(input);
 
   final EMAIndicator<T> _avgDiff;
   final EMAIndicator<T> _avgRel;

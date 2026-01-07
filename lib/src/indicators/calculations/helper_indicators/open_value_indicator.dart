@@ -8,8 +8,6 @@ class OpenValueIndicator<T extends IndicatorResult> extends Indicator<T> {
   OpenValueIndicator(IndicatorDataInput input) : super(input);
 
   @override
-  T getValue(int index) => createResult(
-        index: index,
-        quote: entries[index].open,
-      );
+  T getValue(int index) =>
+      createResult(index: index, quote: entries[index].open);
 }

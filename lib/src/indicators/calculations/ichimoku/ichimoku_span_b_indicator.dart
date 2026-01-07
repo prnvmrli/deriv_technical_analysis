@@ -7,8 +7,6 @@ import 'ichimoku_line_indicator.dart';
 class IchimokuSpanBIndicator<T extends IndicatorResult>
     extends IchimokuLineIndicator<T> {
   /// Initializes an [IchimokuSpanBIndicator].
-  IchimokuSpanBIndicator(
-    IndicatorDataInput input, {
-    int period = 52,
-  }) : super(input, period: period);
+  IchimokuSpanBIndicator(IndicatorDataInput input, {int period = 52})
+    : super(input, period: period);
 }

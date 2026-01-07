@@ -37,7 +37,9 @@ void main() {
 
     test('LSMAIndicator calculates the correct results', () {
       final LSMAIndicator<MockResult> lsmaIndicator = LSMAIndicator<MockResult>(
-          CloseValueIndicator<MockResult>(MockInput(ticks)), 4);
+        CloseValueIndicator<MockResult>(MockInput(ticks)),
+        4,
+      );
 
       // Comparing Results with app.deriv.com
       expect(lsmaIndicator.getValue(15).quote, closeTo(911.198, 0.001));

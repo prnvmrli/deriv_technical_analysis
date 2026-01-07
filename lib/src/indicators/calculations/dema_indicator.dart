@@ -8,12 +8,12 @@ import 'ema_indicator.dart';
 class DEMAIndicator<T extends IndicatorResult> extends CachedIndicator<T> {
   /// Initializes.
   DEMAIndicator(Indicator<T> indicator, int period)
-      : this._(indicator, EMAIndicator<T>(indicator, period), period);
+    : this._(indicator, EMAIndicator<T>(indicator, period), period);
 
   DEMAIndicator._(Indicator<T> indicator, EMAIndicator<T> ema, this.period)
-      : _ema = ema,
-        _emaEma = EMAIndicator<T>(ema, period),
-        super.fromIndicator(indicator);
+    : _ema = ema,
+      _emaEma = EMAIndicator<T>(ema, period),
+      super.fromIndicator(indicator);
 
   /// The period.
   final int period;
@@ -23,9 +23,9 @@ class DEMAIndicator<T extends IndicatorResult> extends CachedIndicator<T> {
 
   @override
   T calculate(int index) => createResult(
-        index: index,
-        quote: (_ema.getValue(index).quote * 2) - _emaEma.getValue(index).quote,
-      );
+    index: index,
+    quote: (_ema.getValue(index).quote * 2) - _emaEma.getValue(index).quote,
+  );
 
   @override
   void copyValuesFrom(covariant DEMAIndicator<T> other) {

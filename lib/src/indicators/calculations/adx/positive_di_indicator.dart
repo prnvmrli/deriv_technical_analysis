@@ -10,24 +10,25 @@ import '../mma_indicator.dart';
 class PositiveDIIndicator<T extends IndicatorResult>
     extends CachedIndicator<T> {
   /// Initializes Positive Directional indicator.
-  PositiveDIIndicator(
-    IndicatorDataInput input, {
-    int period = 14,
-  })  : _avgPositiveDMIndicator =
-            MMAIndicator<T>(PositiveDMIndicator<T>(input), period),
-        _atrIndicator = ATRIndicator<T>(input, period: period),
-        super(input);
+  PositiveDIIndicator(IndicatorDataInput input, {int period = 14})
+    : _avgPositiveDMIndicator = MMAIndicator<T>(
+        PositiveDMIndicator<T>(input),
+        period,
+      ),
+      _atrIndicator = ATRIndicator<T>(input, period: period),
+      super(input);
 
   final MMAIndicator<T> _avgPositiveDMIndicator;
   final ATRIndicator<T> _atrIndicator;
 
   @override
   T calculate(int index) => createResult(
-        index: index,
-        quote: (_avgPositiveDMIndicator.getValue(index).quote /
-                _atrIndicator.getValue(index).quote) *
-            100,
-      );
+    index: index,
+    quote:
+        (_avgPositiveDMIndicator.getValue(index).quote /
+            _atrIndicator.getValue(index).quote) *
+        100,
+  );
 
   @override
   void copyValuesFrom(covariant PositiveDIIndicator<T> other) {

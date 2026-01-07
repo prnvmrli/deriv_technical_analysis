@@ -11,8 +11,8 @@ class SignalMACDIndicator<T extends IndicatorResult>
   SignalMACDIndicator.fromIndicator(
     MACDIndicator<T> indicator, {
     int period = 9,
-  })  : _signalMACDIndicator = EMAIndicator<T>(indicator, period),
-        super.fromIndicator(indicator);
+  }) : _signalMACDIndicator = EMAIndicator<T>(indicator, period),
+       super.fromIndicator(indicator);
 
   final EMAIndicator<T> _signalMACDIndicator;
 

@@ -10,11 +10,15 @@ import '../indicator.dart';
 class RSIIndicator<T extends IndicatorResult> extends CachedIndicator<T> {
   /// Initializes an [RSIIndicator] from the given [indicator] and [period].
   RSIIndicator.fromIndicator(Indicator<T> indicator, int period)
-      : _averageGainIndicator =
-            MMAIndicator<T>(GainIndicator<T>.fromIndicator(indicator), period),
-        _averageLossIndicator =
-            MMAIndicator<T>(LossIndicator<T>.fromIndicator(indicator), period),
-        super.fromIndicator(indicator);
+    : _averageGainIndicator = MMAIndicator<T>(
+        GainIndicator<T>.fromIndicator(indicator),
+        period,
+      ),
+      _averageLossIndicator = MMAIndicator<T>(
+        LossIndicator<T>.fromIndicator(indicator),
+        period,
+      ),
+      super.fromIndicator(indicator);
 
   final MMAIndicator<T> _averageGainIndicator;
   final MMAIndicator<T> _averageLossIndicator;
